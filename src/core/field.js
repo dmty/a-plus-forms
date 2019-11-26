@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'fast-deep-equal';
 import Layout from './layout';
@@ -172,5 +172,5 @@ export default (options: FieldOptions = {}) => (Input: Component): Component => 
     });
   }
 
-  return Field;
+  return forwardRef((props, ref) => <Field {...props} forwardedRef={ref} />);
 };
